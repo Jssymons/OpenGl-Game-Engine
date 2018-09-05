@@ -8,8 +8,8 @@ class Mesh
 public:
 	Mesh();
 	void AddVertices(std::vector<Vertex> vertices, std::vector<GLuint> indices);
-	void BufferInstances(glm::vec3* offsets);
-	void Draw();
+	void BufferInstances(std::vector<glm::vec3> instances);
+	void Draw(int instanceCount);
 private:
 	GLuint vbo, ibo, vao, instanceVbo;
 	int size;

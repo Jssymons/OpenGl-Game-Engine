@@ -45,12 +45,16 @@ void Model::SetScale(double x, double y, double z)
 	transformation.SetScale(x, y, z);
 }
 
-void Model::AddInstances(glm::vec3* offsets) {
-	mesh->BufferInstances(offsets);
+void Model::AddInstance(glm::vec3 offset) {
+	instances.push_back(offset);
+}
+
+void Model::Prepare() {
+	mesh->BufferInstances(instances);
 }
 
 void Model::Draw(Camera* camera)
 {
 	shader->SetUniform("transform", camera->GetProjectionMatrix() * camera->GetViewMatrix() * transformation.GetTransformation());
-	mesh->Draw();
+	mesh->Draw(instances.size());
 }

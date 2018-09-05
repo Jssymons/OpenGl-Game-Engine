@@ -32,15 +32,15 @@ void Mesh::AddVertices(std::vector<Vertex> vertices, std::vector<GLuint> indices
 	glBindVertexArray(0);
 }
 
-void Mesh::BufferInstances(glm::vec3* offsets) {
+void Mesh::BufferInstances(std::vector<glm::vec3> instances) {
 	glBindBuffer(GL_ARRAY_BUFFER, instanceVbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * 4096, &offsets[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, instances.size() * sizeof(instances[0]), instances.data(), GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void Mesh::Draw()
+void Mesh::Draw(int instanceCount)
 {
 	glBindVertexArray(vao);
-	glDrawElementsInstanced(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0, 4096);
+	glDrawElementsInstanced(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0, instanceCount);
 	glBindVertexArray(0);
 }

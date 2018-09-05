@@ -1,3 +1,4 @@
-﻿  RenderUtil.cpp
+﻿  Game.cpp
+c:\users\jason\documents\repositories\opengl-game-engine\opengl game engine\opengl game engine\source\game\game.cpp(105): warning C4018: '<': signed/unsigned mismatch
   OpenGl Game Engine.vcxproj -> C:\Users\Jason\Documents\Repositories\OpenGl-Game-Engine\OpenGl Game Engine\Debug\OpenGl Game Engine.exe
   OpenGl Game Engine.vcxproj -> C:\Users\Jason\Documents\Repositories\OpenGl-Game-Engine\OpenGl Game Engine\Debug\OpenGl Game Engine.pdb (Partial PDB)

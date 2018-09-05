@@ -17,40 +17,35 @@ Game::Game()
 	shader.AddAttribute("offset");
 	shader.AddAttribute("vOffset");
 
-	// Set up models
-	m = ResourceLoader::LoadMesh("cube.obj");
+	// Load meshes
+	cube = ResourceLoader::LoadMesh("cube.obj");
 
-	for (int a = 0; a < 8; a++) {
-		for (int b = 0; b < 8; b++) {
-			Model model;
-			model.AddMesh(&m);
-			model.AddShader(&shader);
+	// Set up chunk
+	Model model;
+	model.AddMesh(&cube);
+	model.AddShader(&shader);
 
-			int counter = 0;
-			const int arraySize = Globals::CHUNK_SIZE * Globals::CHUNK_SIZE * Globals::CHUNK_SIZE;
-			glm::vec3 offsets[4096];
-
-			for (int z = 0; z < Globals::CHUNK_SIZE; z++)
+	int counter = 0;
+	for (int z = 0; z < Globals::CHUNK_WIDTH; z++)
+	{
+		for (int y = 0; y < Globals::CHUNK_HEIGHT; y++)
+		{
+			for (int x = 0; x < Globals::CHUNK_WIDTH; x++)
 			{
-				for (int y = 0; y < Globals::CHUNK_SIZE; y++)
-				{
-					for (int x = 0; x < Globals::CHUNK_SIZE; x++)
-					{
-						offsets[counter] = glm::vec3(x * 2.0f, y * 2.0f, z * 2.0f);
-						model.AddInstances(offsets);
-						counter++;
-					}
-				}
+				model.AddInstance(glm::vec3(x * 2.0f, y * 2.0f, z * 2.0f));
+				counter++;
 			}
-
-			auto f = a * Globals::CHUNK_SIZE;
-			auto g = b * Globals::CHUNK_SIZE;
-			model.AddTransformation(glm::vec3(f, 0, g), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
-
-			models.push_back(model);
 		}
 	}
+	model.AddTransformation(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
+	models.push_back(model);
 
+	// Prepare Models
+	for each(auto model in models) {
+		model.Prepare();
+	}
+
+	// Set up camera projection
 	camera.SetProjection(95, Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 0.001f, 1000.0f);
 }
 

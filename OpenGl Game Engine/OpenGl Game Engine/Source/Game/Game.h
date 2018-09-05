@@ -13,7 +13,7 @@ public:
 	void Render();
 private:
 	std::vector<Model> models;
-	Mesh m;
+	Mesh cube;
 	Shader shader;
 	GLfloat clamp = 0.0f;
 	Camera camera;
