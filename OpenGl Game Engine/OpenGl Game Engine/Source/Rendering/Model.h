@@ -19,6 +19,7 @@ public:
 	void SetRotation(double x, double y, double z);
 	void SetScale(glm::vec3 s);
 	void SetScale(double x, double y, double z);
+	bool HasInstances();
 private:
 	std::vector<glm::vec3> instances;
 	Transform transformation;

@@ -58,3 +58,8 @@ void Model::Draw(Camera* camera)
 	shader->SetUniform("transform", camera->GetProjectionMatrix() * camera->GetViewMatrix() * transformation.GetTransformation());
 	mesh->Draw(instances.size());
 }
+
+bool Model::HasInstances()
+{
+	return instances.size() != 0;
+}

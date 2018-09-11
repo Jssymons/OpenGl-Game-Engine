@@ -1,8 +1,10 @@
 #pragma once
 #include "../Modelling/Mesh.h"
+#include "../Rendering/TextureAtlas.h"
 #include "../Rendering/Shader.h"
 #include "../Rendering/Camera.h"
 #include "../Rendering/Model.h"
+#include "../Math/Random.h"
 
 class Game
 {
@@ -13,9 +15,16 @@ public:
 	void Render();
 private:
 	std::vector<Model> models;
-	Mesh cube;
+	Mesh dirtMesh;
+	Mesh grassMesh;
+	Mesh stoneMesh;
+	Mesh bedrockMesh;
+	Mesh trunkMesh;
+	Mesh leavesMesh;
+	TextureAtlas atlas;
 	Shader shader;
 	GLfloat clamp = 0.0f;
 	Camera camera;
+	Random random;
 };
 

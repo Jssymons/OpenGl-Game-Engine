@@ -14,3 +14,15 @@ std::vector<GLfloat> ModellingUtil::VertexVectorToFloatVector(std::vector<Vertex
 
 	return floatVector;
 }
+
+std::vector<GLfloat> ModellingUtil::Vector2ToFloatVector(std::vector<glm::vec2> vectors) {
+	std::vector<GLfloat> floatVector;
+
+	for (int i = 0; i < vectors.size(); i++)
+	{
+		floatVector.push_back(vectors[i].x);
+		floatVector.push_back(vectors[i].y);
+	}
+
+	return floatVector;
+}
