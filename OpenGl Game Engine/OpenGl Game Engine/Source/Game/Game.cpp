@@ -119,6 +119,9 @@ void Game::Input()
 	if (Input::GetKey(GLFW_KEY_LEFT_SHIFT))
 		camera.Move(glm::vec3(0, 0, 1), -0.0500f);
 
+	if (Input::GetKey(GLFW_KEY_LEFT_CONTROL))
+		camera.Move(glm::vec3(0, 0, 1), 0.0500f);
+
 	if (Input::GetMouseDown(GLFW_MOUSE_BUTTON_LEFT))
 		printf("Left mouse button down\n");
 

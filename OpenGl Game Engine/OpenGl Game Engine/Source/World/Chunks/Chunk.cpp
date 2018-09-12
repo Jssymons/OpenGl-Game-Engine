@@ -60,37 +60,37 @@ Chunk::Chunk(std::vector<Model>* models, int xLocation, int zLocation)
 	}
 
 	//// Create trees
-	//int baseTerrainHeight = yEnd;
-	//for (int z = zStart; z < zEnd; z = z + 4)
-	//{
-	//	for (int x = xStart; x < xEnd; x = x + 4)
-	//	{
-	//		if (random.IntInRange(0, 6) == 0)
-	//		{
-	//			// Trunk
-	//			int trunkHeight = random.IntInRange(4, 10);
-	//			for (int i = 0; i < trunkHeight; i++)
-	//			{
-	//				models->at(BlockType::Trunk).AddInstance(glm::vec3(x * 2.0f, (baseTerrainHeight + i) * 2.0f, z * 2.0f));
-	//			}
+	int baseTerrainHeight = yEnd;
+	for (int z = zStart; z < zEnd; z = z + 4)
+	{
+		for (int x = xStart; x < xEnd; x = x + 4)
+		{
+			if (random.IntInRange(0, 6) == 0)
+			{
+				// Trunk
+				int trunkHeight = random.IntInRange(4, 10);
+				for (int i = 0; i < trunkHeight; i++)
+				{
+					models->at(BlockType::Trunk).AddInstance(glm::vec3(x * 2.0f, (baseTerrainHeight + i) * 2.0f, z * 2.0f));
+				}
 
-	//			// Leaves
-	//			int foliageWidth = (random.IntInRange(1, 2) * 2) + 1;
-	//			int foliageBottom = baseTerrainHeight + trunkHeight - 1;
-	//			int foliageHeight = random.IntInRange(3, 4);
+				// Leaves
+				int foliageWidth = (random.IntInRange(1, 2) * 2) + 1;
+				int foliageBottom = baseTerrainHeight + trunkHeight - 1;
+				int foliageHeight = random.IntInRange(3, 4);
 
-	//			for (int ly = 0; ly < foliageHeight; ly++)
-	//			{
-	//				for (int lx = x - (foliageWidth - ly); lx < x + (foliageWidth - ly); lx++)
-	//				{
-	//					for (int lz = z - (foliageWidth - ly); lz < z + (foliageWidth - ly); lz++)
-	//					{
-	//						models->at(BlockType::Leaves).AddInstance(glm::vec3(lx * 2.0f, (ly + foliageBottom) * 2.0f, lz * 2.0f));
-	//					}
-	//				}
-	//			}
+				for (int ly = 0; ly < foliageHeight; ly++)
+				{
+					for (int lx = x - (foliageWidth - ly); lx < x + (foliageWidth - ly); lx++)
+					{
+						for (int lz = z - (foliageWidth - ly); lz < z + (foliageWidth - ly); lz++)
+						{
+							models->at(BlockType::Leaves).AddInstance(glm::vec3(lx * 2.0f, (ly + foliageBottom) * 2.0f, lz * 2.0f));
+						}
+					}
+				}
 
-	//		}
-	//	}
-	//}
+			}
+		}
+	}
 }
