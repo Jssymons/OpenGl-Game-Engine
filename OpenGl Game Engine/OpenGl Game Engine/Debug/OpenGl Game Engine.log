@@ -1,7 +1,0 @@
-﻿  Game.cpp
-c:\users\jason\documents\repositories\opengl-game-engine\opengl game engine\opengl game engine\source\game\game.cpp(130): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data
-c:\users\jason\documents\repositories\opengl-game-engine\opengl game engine\opengl game engine\source\game\game.cpp(137): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data
-c:\users\jason\documents\repositories\opengl-game-engine\opengl game engine\opengl game engine\source\game\game.cpp(139): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data
-c:\users\jason\documents\repositories\opengl-game-engine\opengl game engine\opengl game engine\source\game\game.cpp(238): warning C4018: '<': signed/unsigned mismatch
-  OpenGl Game Engine.vcxproj -> C:\Users\Jason\Documents\Repositories\OpenGl-Game-Engine\OpenGl Game Engine\Debug\OpenGl Game Engine.exe
-  OpenGl Game Engine.vcxproj -> C:\Users\Jason\Documents\Repositories\OpenGl-Game-Engine\OpenGl Game Engine\Debug\OpenGl Game Engine.pdb (Partial PDB)
