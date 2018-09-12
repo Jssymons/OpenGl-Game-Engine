@@ -1,5 +1,9 @@
 # ignore build files
+
 **/debug
 
-#ignore opendb
+
+# ignore opendb
+
 *.opendb
+*.sdf
