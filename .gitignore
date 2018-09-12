@@ -1,9 +1,9 @@
 # ignore build files
 
-**/debug
-
+**/Debug
+./OpenGl Game Engine/Debug/*
+./OpenGl Game Engine/OpenGl Game Engine/Debug/*
 
 # ignore opendb
-
 *.opendb
 *.sdf
