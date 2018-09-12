@@ -1,5 +1,10 @@
 #include "Model.h"
 
+Model::Model(BlockType type)
+{
+	blockType = type;
+}
+
 void Model::AddMesh(Mesh* m)
 {
 	mesh = m;
@@ -62,4 +67,9 @@ void Model::Draw(Camera* camera)
 bool Model::HasInstances()
 {
 	return instances.size() != 0;
+}
+
+BlockType Model::GetBlockType()
+{
+	return blockType;
 }

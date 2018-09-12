@@ -3,10 +3,12 @@
 #include "Camera.h"
 #include "Mesh.h"
 #include "../Math/Transform.h"
+#include "../World/Blocks/BlockType.h"
 
 class Model
 {
 public:
+	Model(BlockType type);
 	void Prepare();
 	void Draw(Camera* camera);
 	void AddMesh(Mesh* mesh);
@@ -20,10 +22,12 @@ public:
 	void SetScale(glm::vec3 s);
 	void SetScale(double x, double y, double z);
 	bool HasInstances();
+	BlockType GetBlockType();
 private:
 	std::vector<glm::vec3> instances;
 	Transform transformation;
 	Mesh* mesh;
 	Shader* shader;
+	BlockType blockType;
 };
 

@@ -7,13 +7,6 @@ public:
 	static const float FRAME_CAP;
 	static const int CHUNK_WIDTH;
 	static const int CHUNK_HEIGHT;
-	enum BLOCK_TYPES {
-		Dirt,
-		Grass,
-		Stone,
-		Bedrock,
-		Trunk,
-		Leaves
-	};
+	static const int CHUNK_DRAW_RADIUS;
 };
 

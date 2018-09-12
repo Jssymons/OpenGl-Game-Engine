@@ -5,6 +5,7 @@
 #include "../Rendering/Camera.h"
 #include "../Rendering/Model.h"
 #include "../Math/Random.h"
+#include "../World/Chunks/Chunk.h"
 
 class Game
 {
@@ -25,6 +26,5 @@ private:
 	Shader shader;
 	GLfloat clamp = 0.0f;
 	Camera camera;
-	Random random;
 };
 

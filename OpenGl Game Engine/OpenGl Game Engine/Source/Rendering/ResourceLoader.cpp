@@ -122,7 +122,7 @@ Mesh ResourceLoader::LoadMesh(std::string fileName)
 	return m;
 }
 
-Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES blockType) {
+Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, BlockType blockType) {
 	std::vector<GLfloat> vertexPositions =
 	{
 		//Back
@@ -172,7 +172,7 @@ Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES bloc
 	std::vector<GLfloat> bottom;
 
 	switch (blockType) {
-	case (Globals::BLOCK_TYPES::Dirt) :
+	case (BlockType::Dirt) :
 		back = atlas.GetTextureCoords(	{ 2, 0 });
 		right = atlas.GetTextureCoords(	{ 2, 0 });
 		front = atlas.GetTextureCoords(	{ 2, 0 });
@@ -180,7 +180,7 @@ Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES bloc
 		top = atlas.GetTextureCoords(	{ 2, 0 });
 		bottom = atlas.GetTextureCoords({ 2, 0 });
 		break;
-	case (Globals::BLOCK_TYPES::Grass) :
+	case (BlockType::Grass) :
 		back = atlas.GetTextureCoords({ 3, 0 });
 		right = atlas.GetTextureCoords({ 3, 0 });
 		front = atlas.GetTextureCoords({ 3, 0 });
@@ -188,7 +188,7 @@ Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES bloc
 		top = atlas.GetTextureCoords({ 0, 0 });
 		bottom = atlas.GetTextureCoords({ 2, 0 });
 		break;
-	case (Globals::BLOCK_TYPES::Stone) :
+	case (BlockType::Stone) :
 		back = atlas.GetTextureCoords({ 1, 0 });
 		right = atlas.GetTextureCoords({ 1, 0 });
 		front = atlas.GetTextureCoords({ 1, 0 });
@@ -196,7 +196,7 @@ Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES bloc
 		top = atlas.GetTextureCoords({ 1, 0 });
 		bottom = atlas.GetTextureCoords({ 1, 0 });
 		break;
-	case (Globals::BLOCK_TYPES::Bedrock) :
+	case (BlockType::Bedrock) :
 		back = atlas.GetTextureCoords({ 5, 2 });
 		right = atlas.GetTextureCoords({ 5, 2 });
 		front = atlas.GetTextureCoords({ 5, 2 });
@@ -204,7 +204,7 @@ Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES bloc
 		top = atlas.GetTextureCoords({ 5, 2 });
 		bottom = atlas.GetTextureCoords({ 5, 2 });
 		break;
-	case (Globals::BLOCK_TYPES::Trunk) :
+	case (BlockType::Trunk) :
 		back = atlas.GetTextureCoords({ 4, 1 });
 		right = atlas.GetTextureCoords({ 4, 1 });
 		front = atlas.GetTextureCoords({ 4, 1 });
@@ -212,7 +212,7 @@ Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES bloc
 		top = atlas.GetTextureCoords({ 5, 1 });
 		bottom = atlas.GetTextureCoords({ 5, 1 });
 		break;
-	case (Globals::BLOCK_TYPES::Leaves) :
+	case (BlockType::Leaves) :
 		back = atlas.GetTextureCoords({ 5, 3 });
 		right = atlas.GetTextureCoords({ 5, 3 });
 		front = atlas.GetTextureCoords({ 5, 3 });

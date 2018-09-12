@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "TextureAtlas.h"
 #include "../../Globals.h"
+#include "../World/Blocks/BlockType.h"
 
 #ifndef __gl_h_
 #include <GL\glew.h>
@@ -15,7 +16,7 @@ public:
 	static Texture LoadTexture(std::string fileName);
 	static Mesh LoadMesh(std::string fileName);
 	static GLuint LoadShader(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
-	static Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, Globals::BLOCK_TYPES blockType);
+	static Mesh ResourceLoader::CubePrimitive(TextureAtlas atlas, BlockType blockType);
 	static GLuint CompileShader(const GLchar* source, GLenum type);
 	static std::string GetShaderSource(const std::string sourceFile);
 	static GLuint CreateProgram(GLuint vertexShaderID, GLuint fragmentShaderID);

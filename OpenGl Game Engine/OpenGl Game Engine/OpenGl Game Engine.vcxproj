@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="Source\World\Chunks\Chunk.cpp" />
     <ClCompile Include="Source\Math\Random.cpp" />
     <ClCompile Include="Source\Rendering\Model.cpp" />
     <ClCompile Include="Source\Rendering\Camera.cpp" />
@@ -136,6 +137,8 @@
     <ClCompile Include="Source\Rendering\TextureAtlas.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\World\Blocks\BlockType.h" />
+    <ClInclude Include="Source\World\Chunks\Chunk.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Source\Math\Random.h" />
     <ClInclude Include="Source\Rendering\Model.h" />
