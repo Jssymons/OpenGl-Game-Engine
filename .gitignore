@@ -3,7 +3,8 @@
 **/Debug
 ./OpenGl Game Engine/Debug/*
 ./OpenGl Game Engine/OpenGl Game Engine/Debug/*
-
+./OpenGl Game Engine/.vs/*
 # ignore opendb
 *.opendb
 *.sdf
+*.suo
