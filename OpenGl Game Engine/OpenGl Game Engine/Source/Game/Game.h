@@ -1,5 +1,5 @@
 #pragma once
-#include "../Modelling/Mesh.h"
+#include "../Rendering/Mesh.h"
 #include "../Rendering/TextureAtlas.h"
 #include "../Rendering/Shader.h"
 #include "../Rendering/Camera.h"

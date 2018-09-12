@@ -1,7 +1,7 @@
 #pragma once
 #include "Shader.h"
 #include "Camera.h"
-#include "../Modelling/Mesh.h"
+#include "Mesh.h"
 #include "../Math/Transform.h"
 
 class Model

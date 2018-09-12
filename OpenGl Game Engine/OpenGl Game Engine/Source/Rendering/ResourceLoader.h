@@ -1,6 +1,6 @@
 #pragma once
-#include "../Modelling/Mesh.h"
-#include "./Texture.h"
+#include "Mesh.h"
+#include "Texture.h"
 #include "TextureAtlas.h"
 #include "../../Globals.h"
 
