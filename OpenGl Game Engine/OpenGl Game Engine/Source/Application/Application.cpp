@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "../Game/Time.h"
 #include "../../Globals.h"
+#include "../World/Blocks/Block.h"
 #include <glm\ext.hpp>
 #include <GL\glfw3.h>
 #include <thread>
@@ -58,7 +59,6 @@ void Application::Run()
 			Time::SetDelta(refreshRate);
 
 			// Do input
-			Input::Update();
 			game->Input();
 
 			// Do calculation
@@ -73,7 +73,14 @@ void Application::Run()
 				framerateTimer = 0.0;
 				framerateCounter = 0.0;
 
-				printf("Cursor Position: %s\n", glm::to_string(Input::GetMousePos()).c_str());
+				printf("Mouse direction %s\n", glm::to_string(Input::GetMouseDirection()).c_str());
+
+				Block* block = Input::GetCurrentBlock();
+				if (block)
+				{
+					printf("Block type %d selected at position (%s)", block->GetBlockType(), glm::to_string(block->GetPosition()).c_str());
+				}
+
 				printf("\n");
 			}
 		}

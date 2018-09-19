@@ -22,6 +22,7 @@ GLFWwindow* Display::CreateWindow(int width, int height, std::string title)
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);				// Window input mode
 	glfwSwapInterval(0);												// Vsync (0 = off, 1 = on)
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);		// Set mouse cursor settings
+	glfwSetCursorPos(window, width / 2, height / 2);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);						// OpenGl major version
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);						// OpenGl minor version
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);				// OpenGl compatability mode

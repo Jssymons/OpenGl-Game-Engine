@@ -54,6 +54,20 @@ void Model::AddInstance(glm::vec3 offset) {
 	instances.push_back(offset);
 }
 
+void Model::RemoveInstance(glm::vec3 removeOffset)
+{
+	std::vector<glm::vec3> newInstances;
+	for each (auto offset in instances)
+	{
+		if (offset != removeOffset)
+		{
+			newInstances.push_back(offset);
+		}
+	}
+
+	instances = newInstances;
+}
+
 void Model::Prepare() {
 	mesh->BufferInstances(instances);
 }

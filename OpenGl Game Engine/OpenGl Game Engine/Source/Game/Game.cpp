@@ -4,6 +4,7 @@
 #include "../Rendering//RenderUtil.h"
 #include "../../Globals.h"
 #include "../World/Blocks/BlockType.h"
+#include "../World/World.h"
 #include <Input\Input.h>
 #include <vector>
 #include <stdio.h>
@@ -27,6 +28,8 @@ Game::Game() :
 	leavesMesh = ResourceLoader::CubePrimitive(atlas, BlockType::Leaves);
 
 	// Set up models
+	Model air(BlockType::None);
+
 	Model dirt(BlockType::Dirt);
 	dirt.AddMesh(&dirtMesh);
 	dirt.AddShader(&shader);
@@ -57,6 +60,7 @@ Game::Game() :
 	leaves.AddShader(&shader);
 	leaves.AddTransformation(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
 
+	models.push_back(air);
 	models.push_back(dirt);
 	models.push_back(grass);
 	models.push_back(stone);
@@ -64,19 +68,16 @@ Game::Game() :
 	models.push_back(trunk);
 	models.push_back(leaves);
 
-	for (int x = -Globals::CHUNK_DRAW_RADIUS; x < Globals::CHUNK_DRAW_RADIUS; x++)
-	{
-		for (int z = -Globals::CHUNK_DRAW_RADIUS; z < Globals::CHUNK_DRAW_RADIUS; z++)
-		{
-			Chunk chunk(&models, x, z);
-		}
-	}
+	world.Create(&models);
 
 	// Prepare Models
 	for each(auto model in models) {
 		if (model.HasInstances())
 		{
-			model.Prepare();
+			if (model.GetBlockType() != BlockType::None)
+			{
+				model.Prepare();
+			}
 		}
 	}
 
@@ -86,6 +87,8 @@ Game::Game() :
 
 void Game::Input()
 {
+	Input::Update(&camera, &world);
+
 	if (Input::GetKey(GLFW_KEY_SPACE))
 		camera.Move(glm::vec3(0, 1, 0), 0.005f);
 
@@ -123,17 +126,31 @@ void Game::Input()
 		camera.Move(glm::vec3(0, 0, 1), 0.0500f);
 
 	if (Input::GetMouseDown(GLFW_MOUSE_BUTTON_LEFT))
+	{
 		printf("Left mouse button down\n");
+	}
 
 	if (Input::GetMouseUp(GLFW_MOUSE_BUTTON_LEFT))
+	{
 		printf("Left mouse button up\n");
+		Block* currentBlock = Input::GetCurrentBlock();
 
-	if (Input::GetKey(GLFW_KEY_F1)) {
+		if (currentBlock)
+		{
+			BlockType type = currentBlock->GetBlockType();
+			models[type].RemoveInstance(currentBlock->GetPosition());
+			models[type].Prepare();
+		}
+	}
+
+	if (Input::GetKey(GLFW_KEY_F1)) 
+	{
 		printf("Toggling wireframe on\n");
 		RenderUtil::SetWireframe(true);
 	}
 
-	if (Input::GetKey(GLFW_KEY_F2)) {
+	if (Input::GetKey(GLFW_KEY_F2)) 
+	{
 		printf("Toggling wireframe off\n");
 		RenderUtil::SetWireframe(false);
 	}
@@ -151,7 +168,7 @@ void Game::Render()
 	atlas.texture.Bind();
 	for (int i = 0; i < models.size(); i++)
 	{
-		if (models[i].HasInstances())
+		if (models[i].HasInstances() && models[i].GetBlockType() != BlockType::None)
 		{
 			models[i].Draw(&camera);
 		}

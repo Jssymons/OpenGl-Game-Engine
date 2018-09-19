@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\World\Blocks\Block.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Source\World\Chunks\Chunk.cpp" />
     <ClCompile Include="Source\Math\Random.cpp" />
@@ -135,8 +136,11 @@
     <ClCompile Include="Source\Math\Transform.cpp" />
     <ClCompile Include="Source\Rendering\Texture.cpp" />
     <ClCompile Include="Source\Rendering\TextureAtlas.cpp" />
+    <ClCompile Include="Source\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Math\Array3D.h" />
+    <ClInclude Include="Source\World\Blocks\Block.h" />
     <ClInclude Include="Source\World\Blocks\BlockType.h" />
     <ClInclude Include="Source\World\Chunks\Chunk.h" />
     <ClInclude Include="Globals.h" />
@@ -157,6 +161,7 @@
     <ClInclude Include="Source\Math\Transform.h" />
     <ClInclude Include="Source\Rendering\Texture.h" />
     <ClInclude Include="Source\Rendering\TextureAtlas.h" />
+    <ClInclude Include="Source\World\World.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Shaders\simpleShader.frag" />

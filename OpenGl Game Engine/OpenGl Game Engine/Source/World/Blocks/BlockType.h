@@ -1,12 +1,12 @@
 #pragma once
 enum BlockType
 {
-	Dirt = 0,
+	None = 0,
+	Dirt,
 	Grass,
 	Stone,
 	Bedrock,
 	Trunk,
-	Leaves,
+	Leaves, 
 	NumBlockTypes
 };
-

@@ -15,6 +15,7 @@ public:
 	void AddShader(Shader* shader);
 	void AddTransformation(glm::vec3 pos, glm::vec3 rot, glm::vec3 s);
 	void AddInstance(glm::vec3 offset);
+	void RemoveInstance(glm::vec3 offset);
 	void SetPosition(glm::vec3 pos);
 	void SetPosition(double x, double y, double z);
 	void SetRotation(glm::vec3 rot);

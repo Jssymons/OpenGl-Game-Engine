@@ -5,7 +5,7 @@
 #include "../Rendering/Camera.h"
 #include "../Rendering/Model.h"
 #include "../Math/Random.h"
-#include "../World/Chunks/Chunk.h"
+#include "../World/World.h"
 
 class Game
 {
@@ -16,6 +16,7 @@ public:
 	void Render();
 private:
 	std::vector<Model> models;
+	std::vector<Chunk> chunks;
 	Mesh dirtMesh;
 	Mesh grassMesh;
 	Mesh stoneMesh;
@@ -26,5 +27,6 @@ private:
 	Shader shader;
 	GLfloat clamp = 0.0f;
 	Camera camera;
+	World world;
 };
 
